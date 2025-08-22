@@ -97,8 +97,8 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden slide-in-up">
-            <div className="px-2 pt-4 pb-6 space-y-2 glass-strong rounded-2xl mt-4 mx-2 shadow-2xl border border-purple-500/20">
+          <div className="md:hidden slide-in-up min-h-screen">
+            <div className="px-2 pt-4 pb-6 backgroud space-y-2 glass-strong rounded-2xl mt-4 mx-2 shadow-2xl border border-purple-500/20">
               {navItems.map((item, index) => (
                 <Link
                   key={item.href}
