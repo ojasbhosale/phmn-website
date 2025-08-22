@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Smartphone, Zap, TrendingUp, Users, Shield } from "lucide-react"
+import { ArrowRight, Smartphone, Zap, Users, Shield } from "lucide-react"
+// import { TrendingUp } from "lucide-react"
 
 export default function Hero() {
   const [minerCount, setMinerCount] = useState(12438)
@@ -98,7 +99,7 @@ export default function Hero() {
         </div>
 
         {/* Enhanced Stats Grid */}
-        <div
+        {/* <div
           className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? "slide-in-up" : "opacity-0 translate-y-10"}`}
           style={{ animationDelay: "0.8s" }}
         >
@@ -128,7 +129,7 @@ export default function Hero() {
             <div className="text-gray-300 font-medium">Presale Allocation</div>
             <div className="text-sm text-gray-400 mt-2">35% available for early investors</div>
           </div>
-        </div>
+        </div> */}
 
         <div
           className={`flex flex-wrap justify-center items-center gap-8 mt-16 opacity-60 transition-all duration-1000 ${isVisible ? "slide-in-up" : "opacity-0 translate-y-10"}`}
