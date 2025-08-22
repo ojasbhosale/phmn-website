@@ -46,11 +46,11 @@ export default function Navigation() {
           {/* Logo */}
             <Link href="/" className="flex items-center">
             <Image
-                src="/Logo1.png"                     
+                src="/logo2.png"                     
                 alt="PhoneMiner Chad Logo"
                 width={160}                         
                 height={48}                        
-                className="h-12 w-auto object-contain rounded-xl"
+                className="h-14 w-auto object-contain rounded-xl"
                 priority
             />
             </Link>
