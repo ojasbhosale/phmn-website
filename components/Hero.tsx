@@ -81,7 +81,7 @@ export default function Hero() {
         >
           <Button
             size="lg"
-            className="gradient-primary hover-glow glow-pulse text-lg px-10 py-6 font-bold text-white border-0 shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover-scale"
+            className="gradient-primary cursor-pointer hover-glow glow-pulse text-lg px-10 py-6 font-bold text-white border-0 shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover-scale"
           >
             <Zap className="w-6 h-6 mr-3" />
             Join Airdrop Now
@@ -90,7 +90,7 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="glass-strong border-2 border-purple-500/50 text-white hover:bg-purple-500/20 text-lg px-10 py-6 font-bold hover-glow transition-all duration-300"
+            className="glass-strong cursor-pointer border-2 border-purple-500/50 text-white hover:bg-purple-500/20 text-lg px-10 py-6 font-bold hover-glow transition-all duration-300"
           >
             <Smartphone className="w-6 h-6 mr-3" />
             Buy PHMN Token

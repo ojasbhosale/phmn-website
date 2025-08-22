@@ -129,7 +129,7 @@ export default function PresalePage() {
 
             {/* Main CTA */}
             <div className="slide-in-up" style={{ animationDelay: "0.6s" }}>
-              <Button className="gradient-primary hover-glow px-10 py-4 text-xl font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+              <Button className="gradient-primary cursor-pointer hover-glow px-10 py-4 text-white text-lg font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 <Wallet className="w-6 h-6 mr-3" />
                 Buy PHMN Now
               </Button>
@@ -203,7 +203,7 @@ export default function PresalePage() {
                   <Button
                     className={`w-full py-3 font-semibold transition-all duration-300 ${
                       phase.status === "active"
-                        ? "gradient-primary hover-glow shadow-lg"
+                        ? "gradient-primary hover-glow shadow-lg cursor-pointer"
                         : phase.status === "completed"
                         ? "bg-green-500/20 text-green-400 border border-green-500/30 cursor-not-allowed"
                         : "bg-purple-500/10 text-purple-300 border border-purple-500/20 cursor-not-allowed"
@@ -344,11 +344,11 @@ export default function PresalePage() {
                 Presale prices will never be this low again. Secure your position in the mobile mining revolution today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="gradient-primary hover-glow px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                <Button className="gradient-primary cursor-pointer hover-glow px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                   <Wallet className="w-5 h-5 mr-2" />
                   Buy PHMN Tokens
                 </Button>
-                <Button variant="outline" className="border-purple-500/20 hover:border-purple-500/40 px-8 py-4 text-lg">
+                <Button variant="outline" className="border-purple-500/20 hover:border-purple-500/40 cursor-pointer px-8 py-4 text-lg">
                   View Contract
                 </Button>
               </div>

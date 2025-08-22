@@ -78,7 +78,7 @@ export default function Navigation() {
 
           {/* Connect Wallet Button */}
           <div className="hidden md:flex">
-            <Button className="gradient-primary hover-glow glow-effect px-6 py-3 font-semibold text-white border-0 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+            <Button className="gradient-primary cursor-pointer hover-glow glow-effect px-6 py-3 font-semibold text-white border-0 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
               <Wallet className="w-5 h-5 mr-2" />
               Connect Wallet
             </Button>
