@@ -61,12 +61,6 @@ export default function ContactPage() {
       timezone: "PST",
     },
     {
-      city: "Singapore",
-      address: "456 Blockchain Avenue, Level 12",
-      country: "Singapore",
-      timezone: "SGT",
-    },
-    {
       city: "London",
       address: "789 DeFi Lane, Floor 8",
       country: "United Kingdom",
@@ -249,21 +243,20 @@ export default function ContactPage() {
                   </Card>
                 ))}
               </div>
-
-              {/* FAQ Link */}
-              <Card className="glass-strong border-purple-500/20">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-lg font-bold gradient-text font-space-grotesk mb-2">
-                    Frequently Asked Questions
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">Find quick answers to common questions</p>
-                  <Button variant="outline" className="border-purple-500/20 hover:bg-purple-500/10 bg-transparent">
-                    View FAQ
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
+            </div>  
           </div>
+          {/* FAQ Link */}
+          <Card className="glass-strong mt-12 border-purple-500/20">
+            <CardContent className="p-6 text-center">
+              <h3 className="text-lg font-bold gradient-text font-space-grotesk mb-2">
+                Frequently Asked Questions
+              </h3>
+              <p className="text-muted-foreground text-sm mb-4">Find quick answers to common questions</p>
+              <Button variant="outline" className="border-purple-500/20 hover:bg-purple-500/10 bg-transparent">
+                View FAQ
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
