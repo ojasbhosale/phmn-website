@@ -516,7 +516,7 @@ export default function PresalePage() {
 
       {/* Enhanced Final CTA */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Card className="glass-strong border-purple-500/20 shadow-2xl shadow-purple-500/10 slide-in-up overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-pink-500/5"></div>
             <CardContent className="relative p-12">
