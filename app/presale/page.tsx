@@ -494,7 +494,7 @@ export default function PresalePage() {
               <p className="text-muted-foreground">Transparent allocation ensuring long-term project success</p>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                 {[
                   { label: "Presale", percent: "35%", amount: "350M", color: "purple" },
                   { label: "Liquidity", percent: "25%", amount: "250M", color: "blue" },
