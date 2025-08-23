@@ -130,7 +130,7 @@ export default function AirdropCountdown() {
 
             {/* CTA Button */}
             <div className="slide-in-up mb-6 sm:mb-8" style={{ animationDelay: "0.6s" }}>
-              <Button className="w-full sm:w-auto gradient-primary hover-glow px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+              <Button className="w-full cursor-pointer sm:w-auto gradient-primary hover-glow px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 <Clock className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                 Join Airdrop Now
               </Button>

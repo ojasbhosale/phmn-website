@@ -142,14 +142,14 @@ export default function AppPreview() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="gradient-primary hover-glow px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                <Button className="gradient-primary cursor-pointer hover-glow px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                   <Download className="w-5 h-5 mr-2" />
                   Join Waitlist
                 </Button>
 
                 <Button 
                   variant="outline" 
-                  className="border-purple-500/20 hover:border-purple-500/40 px-8 py-4 text-lg backdrop-blur-sm"
+                  className="border-purple-500/20 cursor-pointer hover:border-purple-500/40 px-8 py-4 text-lg backdrop-blur-sm"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Demo
