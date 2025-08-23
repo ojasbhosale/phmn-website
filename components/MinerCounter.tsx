@@ -18,6 +18,13 @@ export default function MinerCounter() {
   const [previousCount, setPreviousCount] = useState(12438)
   const [isAnimating, setIsAnimating] = useState(false)
   const [particles, setParticles] = useState<Particle[]>([])
+  const [growthRate, setGrowthRate] = useState(2) // Store growth rate in state
+  const [mounted, setMounted] = useState(false)
+
+  // Ensure component is mounted before rendering dynamic content
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Generate floating particles
   useEffect(() => {
@@ -39,8 +46,11 @@ export default function MinerCounter() {
       setPreviousCount(count)
       setIsAnimating(true)
       
+      const newGrowthRate = Math.floor(Math.random() * 5) + 2
+      setGrowthRate(newGrowthRate)
+      
       setTimeout(() => {
-        setCount((prev) => prev + Math.floor(Math.random() * 5) + 2)
+        setCount((prev) => prev + newGrowthRate)
         setIsAnimating(false)
       }, 300)
     }, 4000)
@@ -62,6 +72,79 @@ export default function MinerCounter() {
         }}
       />
     ))
+  }
+
+  // Define static color classes to ensure they're included in the build
+  const getStatIconClasses = (color: string) => {
+    const colorMap: { [key: string]: string } = {
+      purple: "bg-gradient-to-br from-purple-500 to-purple-600",
+      yellow: "bg-gradient-to-br from-yellow-500 to-yellow-600", 
+      green: "bg-gradient-to-br from-green-500 to-green-600",
+      blue: "bg-gradient-to-br from-blue-500 to-blue-600"
+    }
+    return colorMap[color] || "bg-gradient-to-br from-gray-500 to-gray-600"
+  }
+
+  const getRegionBarClasses = (color: string) => {
+    const colorMap: { [key: string]: string } = {
+      blue: "bg-gradient-to-r from-blue-500 to-blue-400",
+      purple: "bg-gradient-to-r from-purple-500 to-purple-400",
+      pink: "bg-gradient-to-r from-pink-500 to-pink-400",
+      green: "bg-gradient-to-r from-green-500 to-green-400"
+    }
+    return colorMap[color] || "bg-gradient-to-r from-gray-500 to-gray-400"
+  }
+
+  // Don't render dynamic content until component is mounted
+  if (!mounted) {
+    return (
+      <section className="py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="glass-strong border-purple-500/20 particle-bg shadow-2xl shadow-purple-500/10 mb-12 slide-in-up overflow-hidden relative group">
+            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-80"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-lg opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-500"></div>
+            
+            <CardContent className="relative p-8 lg:p-16">
+              <div className="flex items-center justify-center space-x-6 mb-8 slide-in-up">
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center glow-pulse transform hover:scale-110 transition-transform duration-300">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="hidden md:block w-0.5 h-12 bg-gradient-to-b from-transparent via-purple-500 to-transparent"></div>
+                  <div className="w-16 h-16 gradient-secondary rounded-2xl flex items-center justify-center glow-effect transform hover:scale-110 transition-transform duration-300">
+                    <TrendingUp className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="hidden md:block w-0.5 h-12 bg-gradient-to-b from-transparent via-pink-500 to-transparent"></div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center glow-pulse transform hover:scale-110 transition-transform duration-300">
+                    <Globe className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center space-y-6">
+                <div className="relative slide-in-up" style={{ animationDelay: "0.2s" }}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-8xl md:text-9xl font-space-grotesk font-bold text-purple-500/10 blur-sm">
+                      {previousCount.toLocaleString()}
+                    </span>
+                  </div>
+                  <h2 className="relative text-6xl md:text-8xl lg:text-9xl font-space-grotesk font-bold gradient-text leading-none">
+                    Loading...
+                  </h2>
+                </div>
+                
+                <div className="space-y-4 slide-in-up" style={{ animationDelay: "0.4s" }}>
+                  <p className="text-2xl md:text-3xl text-muted-foreground font-medium">
+                    <span className="gradient-text font-bold">Active Miners</span> Worldwide
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -157,7 +240,7 @@ export default function MinerCounter() {
                   
                   <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/10 to-blue-400/10 border border-blue-500/20 rounded-full px-6 py-3 backdrop-blur-sm transform hover:scale-105 transition-transform duration-200">
                     <Sparkles className="w-4 h-4 text-blue-400 animate-spin" />
-                    <span className="text-blue-400 font-semibold">+{Math.floor(Math.random() * 5) + 2}/min</span>
+                    <span className="text-blue-400 font-semibold">+{growthRate}/min</span>
                   </div>
                 </div>
               </div>
@@ -175,7 +258,7 @@ export default function MinerCounter() {
                   key={stat.label}
                   className="text-center p-4 bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 group"
                 >
-                  <div className={`w-10 h-10 mx-auto mb-2 bg-gradient-to-br from-${stat.color}-500 to-${stat.color}-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-10 h-10 mx-auto mb-2 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${getStatIconClasses(stat.color)}`}>
                     <stat.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="text-lg font-bold gradient-text">{stat.value}</div>
@@ -209,7 +292,7 @@ export default function MinerCounter() {
                 <div className="relative h-6 bg-purple-900/20 rounded-full overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 to-pink-900/10 rounded-full"></div>
                   <div
-                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transition-all duration-1000 rounded-full  overflow-hidden group-hover:shadow-lg group-hover:shadow-purple-500/50"
+                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transition-all duration-1000 rounded-full overflow-hidden group-hover:shadow-lg group-hover:shadow-purple-500/50"
                     style={{ width: `${Math.min((count / 100000) * 100, 100)}%` }}
                   >
                     <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
@@ -247,7 +330,7 @@ export default function MinerCounter() {
                     </div>
                     <div className="relative h-2 bg-gray-700/50 rounded-full overflow-hidden">
                       <div
-                        className={`absolute top-0 left-0 h-full bg-gradient-to-r from-${region.color}-500 to-${region.color}-400 transition-all duration-1000 rounded-full`}
+                        className={`absolute top-0 left-0 h-full transition-all duration-1000 rounded-full ${getRegionBarClasses(region.color)}`}
                         style={{ 
                           width: `${region.percentage}%`,
                           animationDelay: `${regionIndex * 0.2}s`
