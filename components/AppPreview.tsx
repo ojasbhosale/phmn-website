@@ -57,24 +57,23 @@ export default function AppPreview() {
           <div className="relative slide-in-left">
             <Card className="glass-strong border-purple-500/20 overflow-hidden">
               <CardContent className="p-8">
-                <div className="relative">
+                <button
+                  // onClick={() => console.log("Image button clicked")} 
+                  className="relative w-full block focus:outline-none"
+                >
                   <Image
                     src="/claim-mobile.png"
                     alt="PhoneMiner Chad Mobile App"
-                    width={400}      
-                    height={800}     
-                    className="w-full max-w-sm mx-auto rounded-2xl shadow-2xl shadow-purple-500/20"
+                    width={400}
+                    height={800}
+                    className="w-full max-w-sm mx-auto rounded-2xl shadow-2xl shadow-purple-500/20 cursor-pointer"
                   />
-                  
-                  {/* Floating Elements */}
+
+                  {/* Floating Elements (still inside the button) */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-purple-500/30 rounded-full blur-xl float-animation"></div>
-                  <div
-                    className="absolute -bottom-4 -left-4 w-16 h-16 bg-pink-500/30 rounded-full blur-xl float-reverse"
-                  ></div>
-                  <div
-                    className="absolute top-1/2 -right-8 w-12 h-12 bg-blue-500/20 rounded-full blur-lg particles-animation"
-                  ></div>
-                </div>
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-pink-500/30 rounded-full blur-xl float-reverse"></div>
+                  <div className="absolute top-1/2 -right-8 w-12 h-12 bg-blue-500/20 rounded-full blur-lg particles-animation"></div>
+                </button>
               </CardContent>
             </Card>
           </div>
