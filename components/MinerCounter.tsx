@@ -169,7 +169,7 @@ export default function MinerCounter() {
         
         {/* Main Counter Card */}
         <Card className="glass-strong border-purple-500/20 particle-bg shadow-2xl shadow-purple-500/10 mb-12 slide-in-up overflow-hidden relative group">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-80"></div>
+        {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-80"></div> */}
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20"></div>
           
           {/* Animated Border Glow */}
